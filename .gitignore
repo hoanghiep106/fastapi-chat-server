@@ -1,0 +1,23 @@
+# Cache
+__pycache__/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Environments
+*.env
+
+# Virtual environments
+venv/
+
+# MacOS
+.DS_Store
