@@ -24,3 +24,6 @@ venv/
 
 # IDEA
 /.idea
+
+# Mongo
+mongo-data/
