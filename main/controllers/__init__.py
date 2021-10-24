@@ -3,7 +3,7 @@ import logging
 from starlette.responses import JSONResponse
 
 from main import app
-from . import chat, auth, user
+from . import chat, auth, user, message
 
 
 @app.exception_handler(Exception)

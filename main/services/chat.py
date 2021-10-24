@@ -1,7 +1,8 @@
-import json
 from typing import List
 
 from starlette.websockets import WebSocket
+
+from main.schemas.message import MessageModel
 
 
 class ChatRoom:
@@ -12,10 +13,7 @@ class ChatRoom:
         await client.accept()
         self.clients.append(client)
 
-    async def broadcast(self, sender_id: int, message: str):
-        text = json.dumps({
-            "sender_id": sender_id,
-            "message": message
-        })
+    async def broadcast(self, message: MessageModel):
+        text = message.json()
         for client in self.clients:
             await client.send_text(text)
