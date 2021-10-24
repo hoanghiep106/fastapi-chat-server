@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 class Config:
-    MONGO_URL: str = "mongodb://localhost:27017"
+    MONGO_URI: str = "mongodb://localhost:27017"
     DEFAULT_PAGE_LIMIT: int = 10
 
     def __init__(self):
