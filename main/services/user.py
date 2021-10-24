@@ -9,7 +9,7 @@ from main.types import UserDocT
 
 async def create_user(user: AuthModel) -> Awaitable[UserDocT]:
     user_doc = await user_collection.insert_one(user.dict())
-    return user_collection.find_one({"_id": user_doc.inserted_id})
+    return await user_collection.find_one({"_id": user_doc.inserted_id})
 
 
 async def get_users(skip: int, limit: int) -> List[UserDocT]:
