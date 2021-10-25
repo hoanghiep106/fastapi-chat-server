@@ -1,6 +1,8 @@
-from typing import Awaitable, List
+import asyncio
+from typing import Awaitable, List, Optional
 
 from bson import ObjectId
+from bson.errors import InvalidId
 
 from main.database import user_collection
 from main.schemas.user import AuthModel
@@ -24,9 +26,12 @@ def count_users() -> Awaitable[int]:
     return user_collection.count_documents({})
 
 
-def get_user_by_name(name: str) -> Awaitable[UserDocT]:
+def get_user_by_name(name: str) -> Awaitable[Optional[UserDocT]]:
     return user_collection.find_one({"name": name})
 
 
-def get_user(id: str) -> Awaitable[UserDocT]:
-    return user_collection.find_one({"_id": ObjectId(id)})
+def get_user(id: str) -> Awaitable[Optional[UserDocT]]:
+    try:
+        return user_collection.find_one({"_id": ObjectId(id)})
+    except InvalidId:
+        return asyncio.sleep(0, None)
