@@ -5,7 +5,7 @@ import motor.motor_asyncio
 from main import config
 from main.enums import Collection
 
-client = motor.motor_asyncio.AsyncIOMotorClient(config.MONGO_URI)
+client = motor.motor_asyncio.AsyncIOMotorClient(config.MONGO_URI, maxPoolSize=config.MAX_POOL_CONNECTIONS)
 
 database = client.chat
 user_collection = database.get_collection(Collection.USER)
