@@ -15,6 +15,7 @@ htmlcov/
 
 # Environments
 *.env
+*.env.*
 
 # Virtual environments
 venv/
