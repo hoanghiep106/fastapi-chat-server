@@ -10,6 +10,19 @@ services:
       - "27017:27017"
     networks:
       - chat-network
+  chat-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chat-server
+    env_file: .env.docker
+    ports:
+      - "8000:8000"
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000"
+    networks:
+      - chat-network
+    depends_on:
+      - mongodb
 volumes:
   mongo-data:
 networks:
