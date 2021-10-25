@@ -13,6 +13,9 @@ class ChatRoom:
         await client.accept()
         self.clients.append(client)
 
+    def disconnect(self, websocket: WebSocket):
+        self.clients.remove(websocket)
+
     async def broadcast(self, message: MessageModel):
         text = message.json()
         for client in self.clients:

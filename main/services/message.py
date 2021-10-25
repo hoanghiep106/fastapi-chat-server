@@ -1,17 +1,8 @@
-from datetime import datetime
 from typing import Awaitable, List
 
 from main.database import message_collection
 from main.schemas.message import MessageModel
 from main.types import MessageDocT
-
-
-def construct_message(user_id: str, content: str) -> MessageModel:
-    return MessageModel(
-        user_id=user_id,
-        content=content,
-        created_at=datetime.utcnow().isoformat()
-    )
 
 
 async def create_message(message: MessageModel) -> Awaitable[MessageDocT]:
