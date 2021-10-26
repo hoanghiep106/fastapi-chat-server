@@ -3,7 +3,7 @@
 A Python single-chat-room server using Websocket with MongoDB as the database 
 
 
-### Docker setup
+### Docker setup (Recommended)
 
 #### Prerequisite
 1. [Docker](https://www.docker.com/products/docker-desktop)
@@ -81,6 +81,18 @@ $ wscat --connect ws://localhost:8000/chat/{{YOUR_USER_ID}}
 
 
 ### Integration tests
+1. Create a virtual environment:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+2. Install pytest package:
+```
+pip install pytest
+```
+
+3. Run the tests
 ```
 ./run_tests.sh
 ```
