@@ -6,7 +6,7 @@ from main.schemas.pagination import PaginationModel
 
 
 class AuthModel(BaseModel):
-    name: constr(strip_whitespace=True, min_length=1)
+    name: constr(strip_whitespace=True, min_length=1, max_length=256)
 
 
 class UserModel(BaseModel):
