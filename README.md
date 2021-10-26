@@ -87,9 +87,9 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-2. Install pytest package:
+2. Install dependencies:
 ```
-pip install pytest
+pip install -r requirements.txt
 ```
 
 3. Run the tests
